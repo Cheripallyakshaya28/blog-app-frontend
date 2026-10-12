@@ -1,0 +1,30 @@
+###admin login (create this admin via ADMIN_EMAIL / ADMIN_PASSWORD in .env)
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+    "email":"admin@mail.com",
+    "password":"admin123"
+}
+
+###read all users & authors
+GET http://localhost:4000/admin-api/users
+
+###read all articles
+GET http://localhost:4000/admin-api/articles
+
+###block user or author
+PUT http://localhost:4000/admin-api/user/USER_ID_HERE/status
+Content-Type: application/json
+
+{
+  "status": "BLOCKED"
+}
+
+###activate user or author
+PUT http://localhost:4000/admin-api/user/USER_ID_HERE/status
+Content-Type: application/json
+
+{
+  "status": "ACTIVE"
+}

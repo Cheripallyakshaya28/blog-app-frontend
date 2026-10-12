@@ -1,0 +1,63 @@
+###register author
+POST http://localhost:4000/auth/users
+Content-Type: application/json
+
+{
+    "firstName":"author3",
+    "lastName":"",
+    "email":"author3@mail.com",
+    "role":"AUTHOR",
+    "password":"author3",
+    "profileImageUrl":""
+}
+
+
+###login
+POST http://localhost:4000/auth/login
+Content-Type:  application/json
+
+{
+    "email":"author3@mail.com",
+    "password":"author3"
+}
+
+###create new article
+POST http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "author":1,
+    "title":"Article-1 by Author 3 ",
+    "category":"AIML",
+    "content":"test article on AIML"
+}
+
+
+###read own articles
+GET http://localhost:4000/author-api/articles
+
+
+###logout
+GET http://localhost:4000/auth/logout
+
+
+###update article
+PUT http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleId":1,
+    "title":"Article-2 by Author 1",
+    "category":"AI",
+    "content":"test article on AI and its updated"
+}
+
+
+###delete article and restore by article id(soft delete)
+PATCH http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleId":1,
+    "isArticleActive":true
+}
